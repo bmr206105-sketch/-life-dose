@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#F5FAFC">
+  <meta name="description"
+        content="Life Dose - Smart Dosing. Safer Care.">
+
+  <title>Life Dose | Smart Medication Care</title>
+
+  <style>
+    :root {
+      --navy: #163B5C;
+      --blue: #2878B8;
+      --teal: #32AFA5;
+      --background: #F5FAFC;
+      --white: #FFFFFF;
+      --text: #254257;
+      --muted: #758B9B;
+      --border: #E3EDF2;
+      --green: #368B68;
+      --orange: #D98B38;
+      --red: #C85D5D;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .splash {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 20px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          #FFFFFF 0%,
+          #F5FAFC 68%
+        );
+      transition: opacity 0.5s ease;
+    }
+
+    .brand-icon {
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: #E7F5F7;
+      border: 1px solid #D7EBEF;
+      margin-bottom: 22px;
+    }
+
+    .brand-icon svg {
+      width: 82px;
+      height: 82px;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-size: clamp(34px, 8vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--navy);
+    }
+
+    .brand-name span {
+      color: var(--teal);
+    }
+
+    .tagline {
+      margin: 10px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .loading-track {
+      width: min(230px, 75vw);
+      height: 5px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #DCE9EF;
+    }
+
+    .loading-progress {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--teal)
+      );
+      animation: loading 2.2s ease-in-out forwards;
+    }
+
+    .loading-text {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 13px;
+    }
+
+    .creator {
+      position: absolute;
+      bottom: 25px;
+      left: 12px;
+      right: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .creator strong {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    @keyframes loading {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .app {
+      max-width: 1000px;
+      margin: auto;
+      padding: 22px 18px 40px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .small-brand {
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .small-brand span {
+      color: var(--teal);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--green);
+      background: #EAF5EF;
+      border-radius: 20px;
+      padding: 9px 12px;
+      font-size: 12px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .welcome {
+      margin-bottom: 24px;
+    }
+
+    .welcome h2 {
+      color: var(--navy);
+      font-size: clamp(25px, 6vw, 34px);
+      margin: 0 0 9px;
+    }
+
+    .welcome p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 0 0 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .stat-number {
+      display: block;
+      margin-top: 10px;
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .reminder-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .reminder-icon {
+      flex: 0 0 44px;
+      width: 44px;
